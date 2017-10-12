@@ -1,0 +1,10 @@
+<%- cache do%>
+  <tr>
+    <td><%= topic.id%></td>
+    <td><%= topic.title%></td>
+    <td><%= topic.user.email%></td>
+    <td><%= l(topic.created_at, format: :long)%></td>
+    <td><%= topic.disply_status%></td>
+    <td><a>不通过</a></td>
+  </tr>
+<% end -%>

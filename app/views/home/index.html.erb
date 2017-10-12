@@ -1,0 +1,5 @@
+<%content_for :notice do%>
+  <%= render "shared/notice", messages: flash[:notice] , notice: 'success'%>
+<%end if flash[:notice].present?%>
+
+<h2>this is a home page</h2>

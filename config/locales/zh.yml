@@ -1,0 +1,23 @@
+zh:
+  activerecord:
+    errors:
+      invalid: "无效的"
+      full_messages:
+        format: "%{attribute} %{message}"
+      models:
+        user:
+          attributes:
+            email:
+              taken: "已使用"
+            password_confirmation: 
+              confirmation: "不一致"
+            password:
+              too_short: '太短，最少6位'
+  attributes:
+    email: "邮箱"
+    password_confirmation: "密码验证"
+    password: '密码'
+  time:
+    formats:
+      long: '%Y-%m-%d %H:%M:%S'
+      own: '%H:%M:%S, %d %B'

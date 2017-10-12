@@ -1,0 +1,52 @@
+<%= form_with(model: topic, local: true) do |form| %>
+  <% if topic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+
+      <ul>
+      <% topic.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :topic_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_link %>
+    <%= form.text_field :company_link, id: :topic_company_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content, id: :topic_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :String %>
+    <%= form.text_field :String, id: :topic_String %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :topic_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tag %>
+    <%= form.text_field :tag, id: :topic_tag %>
+  </div>
+
+  <div class="field">
+    <%= form.label :String %>
+    <%= form.text_field :String, id: :topic_String %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

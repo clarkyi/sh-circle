@@ -1,0 +1,18 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html:{class: "form-signin"}) do |f| %>
+  <%content_for :notice do%>
+    <%= render "shared/notice", messages: [flash[:alert]], notice: 'failure'%>
+  <%end if flash[:alert]%>
+  <h2 class="form-signin-heading">登 录</h2>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <%= f.email_field :email, placeholder: "邮箱", autocomplete: "off", class: "form-control", required: "required" %>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <%= f.password_field :password, placeholder: "密码", autocomplete: "off", class: "form-control", required: "required"%>
+  <div class="checkbox">
+    <label>
+      <%= f.check_box :remember_me %> 记住我
+    </label>
+  </div>
+  <div class="actions">
+    <%= f.submit "登录", class: 'btn btn-lg btn-primary btn-block' %>
+  </div>
+<% end %>
