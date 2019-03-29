@@ -1,44 +1,32 @@
-<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <%= link_to("",welcome_path, class: "navbar-brand home-navbar-brand")%>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to(welcome_path, class: "nav-link") do%>
-          首页 <span class="sr-only">(current)</span>
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">活动区</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">推广区</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+  <h5 class="my-0 mr-md-auto font-weight-normal home-navbar-brand"></h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <%= link_to(welcome_path, class: "p-2 text-dark") do%>
+      首页 <span class="sr-only">(current)</span>
+    <% end %>
+    <%= link_to(topics_path, class: "p-2 text-dark") do %>
+      活动区<span class="sr-only">(current)</span>
+    <%- end%>
+    <a class="p-2 text-dark" href="#">Support</a>
+    <a class="p-2 text-dark" href="#">Pricing</a>
+  </nav>
+  <%- if user_signed_in? %>
+  <ul>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">个人中心</a>
+      <div class="dropdown-menu">
+        <%= link_to("个人资料", "#", class:"dropdown-item")%>
+        <%= link_to("推广活动记录", "#", class:"dropdown-item")%>
+        <%= link_to("推广产品记录", "#", class:"dropdown-item")%>
+        <%= link_to('退出',
+          { controller: 'devise/sessions', action: 'destroy'},
+          { :method => :DELETE, :class => 'dropdown-item'}
+        ) %>
+      </div>
+    </li>
     </ul>
-    <ul class="navbar-nav">
-      <%- if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">个人中心</a>
-          <div class="dropdown-menu">
-            <%= link_to("个人资料", "#", class:"dropdown-item")%>
-            <%= link_to("推广活动记录", "#", class:"dropdown-item")%>
-            <%= link_to("推广产品记录", "#", class:"dropdown-item")%>
-            <%= link_to('退出',
-                  { controller: 'devise/sessions', action: 'destroy'},
-                  { :method => :DELETE, :class => 'dropdown-item'}
-                ) %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%=link_to('登录', new_user_session_path, class: 'nav-link')%>
-        </li>
-        <li class="nav-item">
-          <%=link_to('注册', new_user_registration_path, class: 'nav-link')%>
-        </li>
-      <% end -%>
-    </ul>
-  </div>
-</nav>
+  <% else %>
+    <%=link_to('登录', new_user_session_path, class: 'btn btn-link')%>
+    <%=link_to('注册', new_user_registration_path, class: 'btn btn-link')%>
+  <% end -%>
+</div>
